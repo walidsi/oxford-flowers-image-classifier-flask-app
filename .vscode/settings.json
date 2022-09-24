@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/728bbb10-94ff-4f81-bcd6-115640cf55d3/appservices/subscriptions/728bbb10-94ff-4f81-bcd6-115640cf55d3/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/oxford-flowers",
+    "appService.deploySubpath": "."
+}

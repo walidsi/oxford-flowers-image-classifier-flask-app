@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxford Flowers Image Classifier Flask App - Home</title>
+</head>
+<body>
+    <h3>Upload a flower image to classify it</h3>
+   
+    <form method="post", enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        {{form.file()}}
+        {{form.submit()}}
+    </form>
+
+    {% if result %}
+    <div>
+        Classification result:<br>
+        {% for key, value in result.items() %}
+            <a>{{key}}: {{value}}</a><br>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if filename %}
+	<div>
+		<img src="{{ url_for('display_image', filename=filename) }}", width="30%", height="auto", alt="{{filename}}", title="{{filename}}">
+	</div>
+    {% endif %}
+    
+</body>
+</html>

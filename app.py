@@ -8,6 +8,8 @@ import predict
 import os
 import json
 import datetime
+import tzlocal  
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'SUPERSECRETKEY'
@@ -22,7 +24,7 @@ class UploadFileForm(FlaskForm):
 def home():
     form = UploadFileForm()
 
-    now = datetime.datetime.now().strftime("%d/%m/%Y, %I:%M:%S %p")
+    now = datetime.datetime.now(tzlocal.get_localzone()).strftime("%Y-%m-%d %I:%M:%S %p %z")
 
     if form.validate_on_submit():
         file = form.file.data

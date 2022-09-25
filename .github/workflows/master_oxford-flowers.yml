@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'oxford-flowers'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6F5F1AC7163B4FC49B889E7F3525C83D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_55D87D1542DF45C2B8CF5376B7EF3BA4 }}

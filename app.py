@@ -22,7 +22,7 @@ class UploadFileForm(FlaskForm):
 def home():
     form = UploadFileForm()
 
-    now = datetime.datetime.now()
+    now = datetime.datetime.now().strftime("%d/%m/%Y, %I:%M:%S %p")
 
     if form.validate_on_submit():
         file = form.file.data

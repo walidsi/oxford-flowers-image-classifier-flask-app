@@ -1,12 +1,13 @@
 from fileinput import filename
 from flask import Flask, render_template, redirect, url_for, jsonify
 from flask_wtf import FlaskForm
-from wtforms import FileField, SubmitField
+from wtforms import FileField, SubmitField, DateTimeField
 from wtforms.validators import InputRequired
 from werkzeug.utils import secure_filename
 import predict
 import os
 import json
+import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'SUPERSECRETKEY'
@@ -21,6 +22,8 @@ class UploadFileForm(FlaskForm):
 def home():
     form = UploadFileForm()
 
+    now = datetime.datetime.now()
+
     if form.validate_on_submit():
         file = form.file.data
         local_file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename))
@@ -29,9 +32,9 @@ def home():
                 
         result = predict.predict(local_file_path)
 
-        return render_template('index.html', form=form, filename=secure_filename(file.filename), result=result)
+        return render_template('index.html', form=form, filename=secure_filename(file.filename), result=result, date=now)
 
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, date=now)
 
 @app.route('/display/<filename>')
 def display_image(filename):

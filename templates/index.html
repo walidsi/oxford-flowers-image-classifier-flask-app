@@ -30,6 +30,11 @@
 		<img src="{{ url_for('display_image', filename=filename) }}", width="30%", height="auto", alt="{{filename}}", title="{{filename}}">
 	</div>
     {% endif %}
-    
+
+    {% if date %}
+    <div>
+        <br>{{date}}
+    </div>
+    {% endif %}
 </body>
 </html>

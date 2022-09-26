@@ -43,6 +43,10 @@ def display_image(filename):
 	#print('display_image filename: ' + filename)
 	return redirect(url_for('static', filename='files/' + filename), code=301)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.after_request
 def add_header(response):
     response.cache_control.max_age = 0  # set this to 0 to force a reload every time

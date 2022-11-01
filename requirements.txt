@@ -56,7 +56,7 @@ starlette==0.19.1
 tensorboard==2.9.1
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
-tensorflow==2.9.1
+tensorflow-cpu==2.9.1
 tensorflow-estimator==2.9.0
 tensorflow-hub==0.12.0
 tensorflow-io-gcs-filesystem==0.27.0
